@@ -1986,6 +1986,11 @@ if ( ! function_exists( 'wp_new_user_notification' ) ) :
 		if ( ! in_array( $notify, array( 'user', 'admin', 'both', '' ), true ) ) {
 			return;
 		}
+		
+		// check that userid isnt null or 0.
+		if ( ! $user_id ) {
+			return;
+		}
 
 		$user = get_userdata( $user_id );
 
